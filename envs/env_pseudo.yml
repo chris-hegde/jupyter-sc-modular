@@ -15,7 +15,7 @@ dependencies:
   - pip
   - pip:
     - pydeseq2
-    - decoupler-py
+    - decoupler
     - liana
     - plotnine
     - adjusttext

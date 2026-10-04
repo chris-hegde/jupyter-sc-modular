@@ -9,7 +9,6 @@ dependencies:
   - jupyterlab-git
   - notebook
   - jupyterlab-system-monitor
-  - jupyterlab-topbar
   - jupytext
   - pip
   - pip:

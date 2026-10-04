@@ -1,0 +1,43 @@
+name: env_core
+channels:
+  - conda-forge
+  - bioconda
+  #gpu# - rapidsai
+  #gpu# - nvidia
+dependencies:
+  - python=3.11
+  - ipykernel
+  - scanpy>=1.10
+  - anndata>=0.10
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  - leidenalg
+  - python-igraph
+  - umap-learn
+  - pynndescent
+  - bbknn
+  - mudata
+  - scvi-tools>=1.1
+  - celltypist
+  - pertpy
+  - decoupler-py
+  - pydeseq2
+  - pytorch-cpu>=2.0
+  #gpu# - pytorch-gpu>=2.0
+  #gpu# - cuda-version=__CUDA__
+  #gpu# - cuml=26.04
+  #gpu# - cudf=26.04
+  #gpu# - cugraph=26.04
+  #gpu# - cuvs=26.04
+  - pip
+  - pip:
+    - cellpose
+    - cell2location
+    #gpu# - rapids-singlecell-cu__CUDA__
+    #gpu# - nvitop
+    - plotnine
+    - adjusttext
+    - session-info2
+    

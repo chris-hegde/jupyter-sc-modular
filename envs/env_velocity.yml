@@ -1,0 +1,27 @@
+name: env_velocity
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - ipykernel
+  - anndata>=0.10
+   - scanpy>=1.10
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib-base
+  - leidenalg
+  - python-igraph
+  - pytorch-cpu>=2.0
+  #gpu# - pytorch-gpu>=2.0
+  #gpu# - cuda-version=__CUDA__
+  - pip
+  - pip:
+    - scvelo
+    - cellrank
+    #gpu# - nvitop
+    - plotnine
+    - adjusttext
+    - session-info2
+    

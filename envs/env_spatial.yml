@@ -1,0 +1,29 @@
+name: env_spatial
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - ipykernel
+  - anndata>=0.10
+  - scanpy>=1.10
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib-base
+  - leidenalg
+  - python-igraph
+  - squidpy
+  - pytorch-cpu>=2.0
+  #gpu# - pytorch-gpu>=2.0
+  #gpu# - cuda-version=__CUDA__
+  - pip
+  - pip:
+    - spatialdata
+    - spatialdata-io
+    - spatialdata-plot
+    - cellpose
+    #gpu# - nvitop
+    - plotnine
+    - adjusttext
+    - session-info2

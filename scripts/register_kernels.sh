@@ -6,22 +6,22 @@
 set -e
 
 echo "Registering env_core kernel..."
-micromamba run -n env_core python -m ipykernel install --sys-prefix \
+micromamba run -n env_core python -m ipykernel install --prefix /opt/conda \
     --name env_core \
     --display-name "Python (core)"
 
 echo "Registering env_velocity kernel..."
-micromamba run -n env_velocity python -m ipykernel install --sys-prefix \
+micromamba run -n env_velocity python -m ipykernel install --prefix /opt/conda \
     --name env_velocity \
     --display-name "Python (velocity)"
 
 echo "Registering env_spatial kernel..."
-micromamba run -n env_spatial python -m ipykernel install --sys-prefix \
+micromamba run -n env_spatial python -m ipykernel install --prefix /opt/conda \
     --name env_spatial \
     --display-name "Python (spatial)"
 
 echo "Registering env_pseudo kernel..."
-micromamba run -n env_pseudo python -m ipykernel install --sys-prefix \
+micromamba run -n env_pseudo python -m ipykernel install --prefix /opt/conda \
     --name env_pseudo \
     --display-name "Python (pseudo)"
 

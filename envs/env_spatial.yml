@@ -9,6 +9,7 @@ dependencies:
   - scanpy>=1.10
   - numpy
   - scipy
+  - narwhals>=1.0
   - pandas
   - matplotlib-base
   - leidenalg

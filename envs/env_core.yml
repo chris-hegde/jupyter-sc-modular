@@ -13,6 +13,7 @@ dependencies:
   - numpy
   - scipy
   - scikit-learn
+  - narwhals>=1.0
   - leidenalg
   - python-igraph
   - umap-learn

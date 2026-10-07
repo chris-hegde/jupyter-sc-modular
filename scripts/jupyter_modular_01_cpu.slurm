@@ -12,7 +12,7 @@
 module purge
 module load apptainer/1.3.6
 
-SIF_IMAGE="/projectsp/f_salgampa_1/chris_h/containers/jupyter-sc-modular_cpu-v01.sif"
+SIF_IMAGE="/projectsp/f_salgampa_1/chris_h/containers/jupyter-sc-modular-cpu-v01.sif"
 
 # Auto-detect --nv flag from image name
 NV_FLAG=""
@@ -43,6 +43,11 @@ export APPTAINERENV_MPLCONFIGDIR="${workdir}/tmp/mpl_cache"
 mkdir -p "${workdir}/tmp/celltypist" "${workdir}/tmp/torch_hub" \
          "${workdir}/tmp/scvi_data" "${workdir}/tmp/numba_cache" \
          "${workdir}/tmp/mpl_cache"
+
+
+# Jupyter config and home directories
+export APPTAINERENV_JUPYTER_CONFIG_DIR="${workdir}/jupyter_config"
+mkdir -p "${workdir}/jupyter_config" "${workdir}/home"
 
 # Get unused port
 readonly PORT=$(python3 -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()')
@@ -79,7 +84,7 @@ END
 # Slack notification
 if [ -n "$SLACK_WEBHOOK_URL" ]; then
     curl -X POST -H 'Content-type: application/json' \
-        --data "{\"text\":\"Jupyter started!\nSSH: \`\`\`ssh -N -L 8888:${HOSTNAME}:${PORT} ${USER}@amarel3.hpc.rutgers.edu\`\`\`\nToken: ${TOKEN}\nJob: ${SLURM_JOB_ID}\"}" \
+        --data "{\"text\":\"Jupyter started!\nSSH: \`\`\`ssh -N -L 8888:${HOSTNAME}:${PORT} ${USER}@amarel3.hpc.rutgers.edu\`\`\`\nURL: http://localhost:8888\nToken: ${TOKEN}\nJob: ${SLURM_JOB_ID}\"}" \
         "$SLACK_WEBHOOK_URL"
 fi
 
@@ -88,6 +93,7 @@ apptainer exec --cleanenv ${NV_FLAG} \
     --bind "${workdir}/tmp:/tmp" \
     --bind "${workdir}/jupyter_runtime:${workdir}/jupyter_runtime" \
     --bind "${workdir}/jupyter_data:${workdir}/jupyter_data" \
+    --bind "${workdir}/home:/home/mambauser" \
     --bind "$PWD:/home/jovyan/work" \
     "${SIF_IMAGE}" \
     /usr/local/bin/_entrypoint.sh \

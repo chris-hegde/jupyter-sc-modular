@@ -14,6 +14,7 @@ dependencies:
   - matplotlib-base
   - leidenalg
   - python-igraph
+  - ipywidgets>=8.0
   - squidpy
   - pytorch-cpu>=2.0
   #gpu# - pytorch-gpu>=2.0

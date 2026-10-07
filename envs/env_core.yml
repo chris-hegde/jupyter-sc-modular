@@ -27,6 +27,7 @@ dependencies:
   - pertpy
   - decoupler
   - pydeseq2
+  - ipywidgets>=8.0
   - pytorch-cpu>=2.0
   #gpu# - pytorch-gpu>=2.0
   #gpu# - cuda-version=__CUDA__

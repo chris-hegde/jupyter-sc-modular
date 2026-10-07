@@ -5,7 +5,7 @@ channels:
   #gpu# - rapidsai
   #gpu# - nvidia
 dependencies:
-  - python=3.11
+  - python=3.12
   - ipykernel
   - scanpy>=1.10
   - anndata>=0.10
@@ -13,17 +13,19 @@ dependencies:
   - numpy
   - scipy
   - scikit-learn
-  - narwhals>=1.0
+  - narwhals>=2.0
   - leidenalg
   - python-igraph
   - umap-learn
   - pynndescent
   - bbknn
   - mudata
+  - muon
+  - scirpy
   - scvi-tools>=1.1
   - celltypist
   - pertpy
-  - decoupler-py
+  - decoupler
   - pydeseq2
   - pytorch-cpu>=2.0
   #gpu# - pytorch-gpu>=2.0

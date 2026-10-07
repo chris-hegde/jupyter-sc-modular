@@ -3,13 +3,13 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - python=3.11
+  - python=3.12
   - ipykernel
   - anndata>=0.10
   - scanpy>=1.10
   - numpy
   - scipy
-  - narwhals>=1.0
+  - narwhals>=2.0
   - pandas
   - matplotlib-base
   - leidenalg
@@ -20,7 +20,7 @@ dependencies:
   - pip
   - pip:
     - scvelo
-    - cellrank
+    - cellrank[scvelo]
     #gpu# - nvitop
     - plotnine
     - adjusttext

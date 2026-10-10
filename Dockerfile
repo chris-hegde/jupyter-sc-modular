@@ -80,6 +80,7 @@ COPY --chown=$MAMBA_USER:$MAMBA_USER envs/env_spatial.yml /tmp/env_spatial.yml
 RUN if [ "$DEVICE" = "gpu" ]; then \
       sed -i 's/pytorch-cpu/pytorch-gpu/g' /tmp/env_spatial.yml; \
       sed -i 's/#gpu# //g' /tmp/env_spatial.yml; \
+      sed -i "s/__CUDA__/${CUDA_WHEEL}/g" /tmp/env_spatial.yml; \
       export CONDA_OVERRIDE_CUDA="12.8"; \
     fi \
     && micromamba create -y -f /tmp/env_spatial.yml \

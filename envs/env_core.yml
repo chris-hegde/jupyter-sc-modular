@@ -39,7 +39,7 @@ dependencies:
   - pip:
     - cellpose
     - cell2location
-    #gpu# - rapids-singlecell-cu__CUDA__
+    #gpu# - rapids-singlecell-cu__CUDA__==0.15.2
     #gpu# - nvitop
     - plotnine
     - adjusttext

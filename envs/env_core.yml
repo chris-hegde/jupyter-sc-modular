@@ -29,17 +29,21 @@ dependencies:
   - pydeseq2
   - ipywidgets>=8.0
   - pytorch-cpu>=2.0
-  #gpu# - pytorch-gpu>=2.0
+  #gpu# - conda-forge::pytorch-gpu>=2.0
   #gpu# - cuda-version=__CUDA__
   #gpu# - cuml=26.04
   #gpu# - cudf=26.04
   #gpu# - cugraph=26.04
   #gpu# - cuvs=26.04
+  #gpu# - cuda-python=12.9
+  #gpu# - cuda-bindings=12.9
   - pip
   - pip:
     - cellpose
     - cell2location
     #gpu# - rapids-singlecell-cu__CUDA__==0.15.2
+    #gpu# - cuda-python==12.9.9
+    #gpu# - cuda-bindings==12.9.9
     #gpu# - nvitop
     - plotnine
     - adjusttext

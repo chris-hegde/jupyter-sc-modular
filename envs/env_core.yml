@@ -30,6 +30,7 @@ dependencies:
   - ipywidgets>=8.0
   - pytorch-cpu>=2.0
   #gpu# - conda-forge::pytorch-gpu>=2.0
+  #gpu# - conda-forge::torchvision
   #gpu# - cuda-version=__CUDA__
   #gpu# - cuml=26.04
   #gpu# - cudf=26.04

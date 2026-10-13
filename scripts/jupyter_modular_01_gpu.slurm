@@ -1,10 +1,11 @@
 #!/bin/bash
-#SBATCH --partition=main
+#SBATCH --partition=gpu
 #SBATCH --job-name=jupyter-sc
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32000
+#SBATCH --gres=gpu:1
 #SBATCH --time=8:00:00
 #SBATCH --output=/projectsp/f_salgampa_1/chris_h/logs/jupyter.%N.%j.out
 #SBATCH --error=/projectsp/f_salgampa_1/chris_h/logs/jupyter.%N.%j.err
@@ -12,7 +13,7 @@
 module purge
 module load apptainer/1.3.6
 
-SIF_IMAGE="/projectsp/f_salgampa_1/chris_h/containers/jupyter-sc-modular_gpu-v01.sif"
+SIF_IMAGE="/projectsp/f_salgampa_1/chris_h/containers/jupyter-sc-modular-gpu-cu12-v01.sif"
 
 # Auto-detect --nv flag from image name
 NV_FLAG=""
@@ -41,6 +42,12 @@ export APPTAINERENV_SCVI_DATA_DIR="${workdir}/tmp/scvi_data"
 export APPTAINERENV_NUMBA_CACHE_DIR="${workdir}/tmp/numba_cache"
 export APPTAINERENV_MPLCONFIGDIR="${workdir}/tmp/mpl_cache"
 mkdir -p "${workdir}/tmp/celltypist" "${workdir}/tmp/torch_hub" \
+         "${workdir}/tmp/scvi_data" "${workdir}/tmp/numba_cache" \
+         "${workdir}/tmp/mpl_cache"
+
+# Jupyter config and home directories
+export APPTAINERENV_JUPYTER_CONFIG_DIR="${workdir}/jupyter_config"
+mkdir -p "${workdir}/jupyter_config" "${workdir}/home"
          "${workdir}/tmp/scvi_data" "${workdir}/tmp/numba_cache" \
          "${workdir}/tmp/mpl_cache"
 
@@ -88,6 +95,7 @@ apptainer exec --cleanenv ${NV_FLAG} \
     --bind "${workdir}/tmp:/tmp" \
     --bind "${workdir}/jupyter_runtime:${workdir}/jupyter_runtime" \
     --bind "${workdir}/jupyter_data:${workdir}/jupyter_data" \
+    --bind "${workdir}/home:/home/mambauser" \
     --bind "$PWD:/home/jovyan/work" \
     "${SIF_IMAGE}" \
     /usr/local/bin/_entrypoint.sh \

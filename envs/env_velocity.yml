@@ -7,7 +7,7 @@ dependencies:
   - ipykernel
   - anndata>=0.10
   - scanpy>=1.10
-  - numpy
+  - "numpy>=1.23,<2.0"
   - scipy
   - narwhals>=2.0
   - pandas

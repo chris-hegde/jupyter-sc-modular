@@ -10,7 +10,7 @@ dependencies:
   - scanpy>=1.10
   - anndata>=0.10
   - pandas
-  - numpy
+  - "numpy>=1.23,<2.0"
   - scipy
   - scikit-learn
   - narwhals>=2.0
@@ -41,7 +41,7 @@ dependencies:
   - pip
   - pip:
     - cellpose
-    - cell2location
+    - cell2location @ git+https://github.com/BayraktarLab/cell2location.git
     #gpu# - rapids-singlecell-cu__CUDA__==0.15.2
     #gpu# - cuda-python==12.9.9
     #gpu# - cuda-bindings==12.9.9

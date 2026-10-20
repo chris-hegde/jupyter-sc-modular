@@ -45,7 +45,6 @@ dependencies:
     #gpu# - rapids-singlecell-cu__CUDA__==0.15.2
     #gpu# - cuda-python==12.9.9
     #gpu# - cuda-bindings==12.9.9
-    #gpu# - cupy-cuda12x[ctk]
     #gpu# - nvitop
     - plotnine
     - adjusttext

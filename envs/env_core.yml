@@ -49,5 +49,5 @@ dependencies:
     - plotnine
     - adjusttext
     - session-info2
-    - scrublet
+    - scrublet==0.1.0
     - clustree    

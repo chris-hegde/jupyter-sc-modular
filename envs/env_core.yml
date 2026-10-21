@@ -49,4 +49,4 @@ dependencies:
     - plotnine
     - adjusttext
     - session-info2
-    - clustree    
+    - pyclustree    
